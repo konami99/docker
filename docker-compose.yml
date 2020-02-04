@@ -16,7 +16,7 @@ services:
 
   webpack_dev_server:
     build: .
-    command: /usr/src/app/bin/webpack-dev-server
+    command: ./bin/webpack-dev-server
     ports: 
       - 3035:3035
     volumes: 
