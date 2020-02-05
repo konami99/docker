@@ -28,6 +28,18 @@ services:
     environment: 
       - WEBPACKER_DEV_SERVER_HOST=0.0.0.0
   
+  sidekiq:
+    build: .
+    command: bundle exec sidekiq
+    volumes: 
+      - '.:/usr/src/app'
+      - '/usr/src/app/node_modules'
+    env_file:
+      - .env/development/database
+      - .env/development/web
+    environment:
+      - REDIS_HOST=redis
+
   redis:
     image: redis
 
