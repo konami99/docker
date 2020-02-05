@@ -5,4 +5,8 @@ class WelcomeController < ApplicationController
 
     @page_hits = redis.get 'page hits'
   end
+
+  def sidekiq
+    GuestsCleanupJob.perform_later 65
+  end
 end

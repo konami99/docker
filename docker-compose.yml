@@ -37,8 +37,6 @@ services:
     env_file:
       - .env/development/database
       - .env/development/web
-    environment:
-      - REDIS_HOST=redis
 
   redis:
     image: redis
