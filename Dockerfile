@@ -1,6 +1,6 @@
 FROM ruby:2.6.5
 
-LABEL maintainer="rob@DockerForRailsDevelopers.com"
+LABEL maintainer="richard.chou@shippit.com"
 
 # Allow apt to work with https-based sources      
 RUN apt-get update -yqq && apt-get install -yqq --no-install-recommends apt-transport-https                            
