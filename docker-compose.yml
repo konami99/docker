@@ -9,6 +9,9 @@ services:
       - '.:/usr/src/app'
       - '/usr/src/app/node_modules'
       - 'gem_cache:/gems'
+      # install gems from host
+      - '/Users/richard/workspace/carrier-base/.:/carrier_base'
+      - '/Users/richard/workspace/carrier-aramex/.:/aramex'
     env_file:
       - .env/development/database
       - .env/development/web
