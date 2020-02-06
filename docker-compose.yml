@@ -8,6 +8,7 @@ services:
     volumes:
       - '.:/usr/src/app'
       - '/usr/src/app/node_modules'
+      - 'gem_cache:/gems'
     env_file:
       - .env/development/database
       - .env/development/web
@@ -22,6 +23,7 @@ services:
     volumes: 
       - '.:/usr/src/app'
       - '/usr/src/app/node_modules'
+      - 'gem_cache:/gems'
     env_file:
       - .env/development/database
       - .env/development/web
@@ -34,6 +36,7 @@ services:
     volumes: 
       - '.:/usr/src/app'
       - '/usr/src/app/node_modules'
+      - 'gem_cache:/gems'
     env_file:
       - .env/development/database
       - .env/development/web
@@ -50,3 +53,4 @@ services:
 
 volumes: 
   db_data:
+  gem_cache:
