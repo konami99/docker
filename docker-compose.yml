@@ -3,6 +3,8 @@ version: '3'
 services: 
   web:
     build: .
+    tty: true
+    stdin_open: true
     ports: 
       - "3000:3000"
     volumes:
@@ -27,6 +29,9 @@ services:
       - '.:/usr/src/app'
       - '/usr/src/app/node_modules'
       - 'gem_cache:/gems'
+      # install gems from host
+      - '/Users/richard/workspace/carrier-base/.:/carrier_base'
+      - '/Users/richard/workspace/carrier-aramex/.:/aramex'
     env_file:
       - .env/development/database
       - .env/development/web
@@ -35,11 +40,16 @@ services:
   
   sidekiq:
     build: .
+    tty: true
+    stdin_open: true
     command: bundle exec sidekiq
     volumes: 
       - '.:/usr/src/app'
       - '/usr/src/app/node_modules'
       - 'gem_cache:/gems'
+      # install gems from host
+      - '/Users/richard/workspace/carrier-base/.:/carrier_base'
+      - '/Users/richard/workspace/carrier-aramex/.:/aramex'
     env_file:
       - .env/development/database
       - .env/development/web
