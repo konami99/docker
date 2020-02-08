@@ -6,7 +6,7 @@ services:
     tty: true
     stdin_open: true
     ports: 
-      - "3000:3000"
+      - 3000:3000
     volumes:
       - '.:/usr/src/app'
       - '/usr/src/app/node_modules'
@@ -19,6 +19,7 @@ services:
       - .env/development/web
     environment: 
       - WEBPACKER_DEV_SERVER_HOST=webpack_dev_server
+      - ELASTICSEARCH_URL=search
 
   webpack_dev_server:
     build: .
@@ -57,8 +58,18 @@ services:
   redis:
     image: redis
 
+  search:
+    image: elasticsearch:7.5.2
+    ports: 
+      - 9200:9200
+      - 9300:9300
+    environment: 
+      - discovery.type=single-node
+
   database:
     image: postgres
+    ports: 
+      - 5432:5432
     env_file:
       - .env/development/database
     volumes: 

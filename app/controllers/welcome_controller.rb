@@ -1,5 +1,6 @@
 class WelcomeController < ApplicationController
   def index
+    binding.pry
     redis = Redis.new(host: 'redis', port: 6379)
     redis.incr 'page hits'
 
