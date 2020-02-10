@@ -13,8 +13,8 @@ services:
       - 'gem_cache:/gems'
       - '~/.ssh:/root/.ssh'
       # install gems from host
-      - '/Users/richard/workspace/carrier-base:/carrier_base'
-      - '/Users/richard/workspace/carrier-aramex:/aramex'
+      - '~/workspace/carrier-base:/carrier_base'
+      - '~/workspace/carrier-aramex:/aramex'
     env_file:
       - .env/development/database
       - .env/development/web
@@ -33,8 +33,8 @@ services:
       - 'gem_cache:/gems'
       - '~/.ssh:/root/.ssh'
       # install gems from host
-      - '/Users/richard/workspace/carrier-base:/carrier_base'
-      - '/Users/richard/workspace/carrier-aramex:/aramex'
+      - '~/workspace/carrier-base:/carrier_base'
+      - '~/workspace/carrier-aramex:/aramex'
     env_file:
       - .env/development/database
       - .env/development/web
@@ -52,8 +52,8 @@ services:
       - 'gem_cache:/gems'
       - '~/.ssh:/root/.ssh'
       # install gems from host
-      - '/Users/richard/workspace/carrier-base:/carrier_base'
-      - '/Users/richard/workspace/carrier-aramex:/aramex'
+      - '~/workspace/carrier-base:/carrier_base'
+      - '~/workspace/carrier-aramex:/aramex'
     env_file:
       - .env/development/database
       - .env/development/web
