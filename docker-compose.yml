@@ -6,35 +6,25 @@ services:
     tty: true
     stdin_open: true
     ports: 
-      - 3000:3000
+      - '3000:3000'
     volumes:
       - '.:/usr/src/app'
-      - '/usr/src/app/node_modules'
       - 'gem_cache:/gems'
-      - '~/.ssh:/root/.ssh'
-      # install gems from host
-      - '~/workspace/carrier-base:/carrier_base'
-      - '~/workspace/carrier-aramex:/aramex'
     env_file:
       - .env/development/database
       - .env/development/web
     environment: 
-      - WEBPACKER_DEV_SERVER_HOST=webpack_dev_server
+      - WEBPACKER_DEV_SERVER_HOST=webpacker
       - ELASTICSEARCH_URL=search
 
-  webpack_dev_server:
+  webpacker:
     build: .
     command: ./bin/webpack-dev-server
     ports: 
       - 3035:3035
     volumes: 
       - '.:/usr/src/app'
-      - '/usr/src/app/node_modules'
       - 'gem_cache:/gems'
-      - '~/.ssh:/root/.ssh'
-      # install gems from host
-      - '~/workspace/carrier-base:/carrier_base'
-      - '~/workspace/carrier-aramex:/aramex'
     env_file:
       - .env/development/database
       - .env/development/web
@@ -48,12 +38,7 @@ services:
     command: bundle exec sidekiq
     volumes: 
       - '.:/usr/src/app'
-      - '/usr/src/app/node_modules'
       - 'gem_cache:/gems'
-      - '~/.ssh:/root/.ssh'
-      # install gems from host
-      - '~/workspace/carrier-base:/carrier_base'
-      - '~/workspace/carrier-aramex:/aramex'
     env_file:
       - .env/development/database
       - .env/development/web
@@ -64,15 +49,15 @@ services:
   search:
     image: elasticsearch:7.5.2
     ports: 
-      - 9200:9200
-      - 9300:9300
+      - '9200:9200'
+      - '9300:9300'
     environment: 
       - discovery.type=single-node
 
   database:
     image: postgres
     ports: 
-      - 5432:5432
+      - '5432:5432'
     env_file:
       - .env/development/database
     volumes: 

@@ -30,10 +30,6 @@ gem 'redis', '~> 4.0'
 gem 'bootsnap', '>= 1.4.2', require: false
 
 gem 'rubyzip', '~> 1.3'
-gem 'carrier-base', require: 'carriers/base', git: 'git@github.com:Go-Shippit/carrier-base.git', tag: 'v0.2.9'
-gem 'australia_post', git: 'https://github.com/Go-Shippit/australia-post-sdk-ruby', tag: 'v1.5.0'
-gem 'allied_express', git: 'git@github.com:Go-Shippit/allied-express-sdk-ruby.git', tag: 'v0.2.2'
-gem 'carrier-aramex', path: '/aramex'
 gem 'elasticsearch', '~> 7.4.0'
 gem 'searchkick', '~> 4.2.1'
 
