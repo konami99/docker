@@ -1,0 +1,8 @@
+POSTGRES_USER=postgres
+POSTGRES_PASSWORD=password
+POSTGRES_DB=my_app_development
+DATABASE_HOST=database
+NODE_ENV=development
+RAILS_ENV=development
+REDIS_HOST=redis
+ELASTICSEARCH_URL=search
